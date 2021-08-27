@@ -8,7 +8,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 steps:
-- script: git checkout master
+- script: git checkout main
   displayName: 'Checkout'
 - script: git push https://$(GitHubAccessToken)@github.com/hellikopter/Optometry-DataSchema.git
   displayName: 'Push to GitHub'
