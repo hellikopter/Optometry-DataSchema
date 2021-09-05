@@ -12,6 +12,11 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Examination".
 
+:ExternalExaminerExamination a owl:Class;
+	rdfs:subClassOf :Examination;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "External examiner examination".
+
 :FarSightednessExamination a owl:Class;
 	rdfs:subClassOf :Examination;
 	rdfs:isDefinedBy this:schema;
@@ -67,6 +72,18 @@ this:schema a owl:Ontology;
 :ContactLensOrder a owl:Class;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Contact lens order".
+
+:Frame a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Frame".
+
+:Glasses a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Glasses".
+
+:ContactLens a owl:Class;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact lens".
 
 
 
@@ -304,6 +321,45 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Far-sightedness examination has contact lens order".
 
+:frameOrderHasFrame a owl:ObjectProperty;
+	rdfs:domain :FrameOrder;
+	rdfs:range :Frame;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Frame order has frame".
+
+:frameHasFrameOrder a owl:ObjectProperty;
+	owl:inverseOf :frameOrderHasFrame;
+	rdfs:domain :Frame;
+	rdfs:range :FrameOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Frame has frame order".
+
+:glassesOrderHasGlasses a owl:ObjectProperty;
+	rdfs:domain :GlassesOrder;
+	rdfs:range :Glasses;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Glasses order has glasses".
+
+:glassesHasGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :glassesOrderHasGlasses;
+	rdfs:domain :Glasses;
+	rdfs:range :GlassesOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Glasses has glasses order".
+
+:contactLensOrderHasContactLens a owl:ObjectProperty;
+	rdfs:domain :ContactLensOrder;
+	rdfs:range :ContactLens;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact lens order has contact lens".
+
+:contactLensHasContactLensOrder a owl:ObjectProperty;
+	owl:inverseOf :contactLensOrderHasContactLens;
+	rdfs:domain :ContactLens;
+	rdfs:range :ContactLensOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact lens has contact lens order".
+
 
 
 :examinationDate a owl:DatatypeProperty;
@@ -313,7 +369,7 @@ this:schema a owl:Ontology;
 	rdfs:label "Examination date".
 
 :externalExaminerName a owl:DatatypeProperty;
-	rdfs:domain :Examination;
+	rdfs:domain :ExternalExaminerExamination;
 	rdfs:range xsd:date;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "External examiner name".
@@ -390,11 +446,11 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Patient family name".
 
-:patientDateOfBirth a owl:DatatypeProperty;
+:patientBirthDate a owl:DatatypeProperty;
 	rdfs:domain :Patient;
 	rdfs:range xsd:date;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Patient date of birth".
+	rdfs:label "Patient birth date".
 
 :postalAddressLine1 a owl:DatatypeProperty;
 	rdfs:domain :PostalAddress;
@@ -452,12 +508,12 @@ this:schema a owl:Ontology;
 
 :assemblyCost a owl:DatatypeProperty;
 	rdfs:domain :Order;
-	rdfs:range xsd:date;
+	rdfs:range xsd:decimal;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Assembly cost".
 
 :frameModelName a owl:DatatypeProperty;
-	rdfs:domain :FrameOrder;
+	rdfs:domain :Frame;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Frame model name".
@@ -469,13 +525,13 @@ this:schema a owl:Ontology;
 	rdfs:label "Frame price".
 
 :glassesManufacturerName a owl:DatatypeProperty;
-	rdfs:domain :GlassesOrder;
+	rdfs:domain :Glasses;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Glasses manufacturer name".
 
 :glassesTypeName a owl:DatatypeProperty;
-	rdfs:domain :GlassesOrder;
+	rdfs:domain :Glasses;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Glasses type name".
@@ -487,13 +543,13 @@ this:schema a owl:Ontology;
 	rdfs:label "Glasses price".
 
 :contactLensManufacturerName a owl:DatatypeProperty;
-	rdfs:domain :ContactLensOrder;
+	rdfs:domain :ContactLens;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Contact lens manufacturer name".
 
 :contactLensTypeName a owl:DatatypeProperty;
-	rdfs:domain :ContactLensOrder;
+	rdfs:domain :ContactLens;
 	rdfs:range xsd:string;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Contact lens type name".
