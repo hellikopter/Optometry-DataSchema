@@ -182,31 +182,57 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Postal address has contact point".
 
-:glassesOrderHasEyesightTest a owl:ObjectProperty;
+:glassesOrderHasLeftEyeEyesightTest a owl:ObjectProperty;
 	rdfs:domain :GlassesOrder;
 	rdfs:range :EyesightTest;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Glasses order has eyesight test".
+	rdfs:label "Glasses order has left eye eyesight test".
 
-:eyesightTestHasGlassesOrder a owl:ObjectProperty;
-	owl:inverseOf :glassesOrderHasEyesightTest;
+:leftEyeEyesightTestHasGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :glassesOrderHasLeftEyeEyesightTest;
 	rdfs:domain :EyesightTest;
 	rdfs:range :GlassesOrder;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Eyesight test has glasses order".
+	rdfs:label "Left eye eyesight test has glasses order".
 
-:contactLensOrderHasContactLensExamination a owl:ObjectProperty;
+:glassesOrderHasRightEyeEyesightTest a owl:ObjectProperty;
+	rdfs:domain :GlassesOrder;
+	rdfs:range :EyesightTest;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Glasses order has right eye eyesight test".
+
+:rightEyeEyesightTestHasGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :glassesOrderHasRightEyeEyesightTest;
+	rdfs:domain :EyesightTest;
+	rdfs:range :GlassesOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Right eye eyesight test has glasses order".
+
+:contactLensOrderHasLeftEyeContactLensExamination a owl:ObjectProperty;
 	rdfs:domain :ContactLensOrder;
 	rdfs:range :ContactLensExamination;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Contact lens order has contact lens examination".
+	rdfs:label "Contact lens order has left eye contact lens examination".
 
-:contactLensExaminationHasContactLensOrder a owl:ObjectProperty;
-	owl:inverseOf :contactLensOrderHasContactLensExamination;
+:leftEyeContactLensExaminationHasContactLensOrder a owl:ObjectProperty;
+	owl:inverseOf :contactLensOrderHasLeftEyeContactLensExamination;
 	rdfs:domain :ContactLensExamination;
 	rdfs:range :ContactLensOrder;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Contact lens examination has contact lens order".
+	rdfs:label "Left eye contact lens examination has contact lens order".
+
+:contactLensOrderHasRightEyeContactLensExamination a owl:ObjectProperty;
+	rdfs:domain :ContactLensOrder;
+	rdfs:range :ContactLensExamination;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Contact lens order has right eye contact lens examination".
+
+:rightEyeContactLensExaminationHasContactLensOrder a owl:ObjectProperty;
+	owl:inverseOf :contactLensOrderHasRightEyeContactLensExamination;
+	rdfs:domain :ContactLensExamination;
+	rdfs:range :ContactLensOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Right eye contact lens examination has contact lens order".
 
 :glassesOrderHasFrame a owl:ObjectProperty;
 	rdfs:domain :GlassesOrder;
