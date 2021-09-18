@@ -467,7 +467,7 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Contact lens type name".
 
-:contactLensOrderFrequency a owl:DatatypeProperty;
+:contactLensOrderFrequencyPeriod a owl:DatatypeProperty;
 	rdfs:domain :ContactLensOrder;
 	rdfs:range xsd:duration;
 	rdfs:isDefinedBy this:schema;
