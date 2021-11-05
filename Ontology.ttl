@@ -165,18 +165,44 @@ this:schema a owl:Ontology;
 	rdfs:isDefinedBy this:schema;
 	rdfs:label "Postal address has contact point".
 
-:glassesOrderHasExamination a owl:ObjectProperty;
+:nearVisionGlassesOrderHasExamination a owl:ObjectProperty;
 	rdfs:domain :GlassesOrder;
 	rdfs:range :Examination;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Glasses order has examination".
+	rdfs:label "Near vision glasses order has examination".
 
-:examinationHasGlassesOrder a owl:ObjectProperty;
-	owl:inverseOf :glassesOrderHasExamination;
+:examinationHasNearVisionGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :nearVisionGlassesOrderHasExamination;
 	rdfs:domain :Examination;
 	rdfs:range :GlassesOrder;
 	rdfs:isDefinedBy this:schema;
-	rdfs:label "Examination has glasses order".
+	rdfs:label "Examination has near vision glasses order".
+
+:intermediateVisionGlassesOrderHasExamination a owl:ObjectProperty;
+	rdfs:domain :GlassesOrder;
+	rdfs:range :Examination;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Intermediate vision glasses order has examination".
+
+:examinationHasIntermediateVisionGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :intermediateVisionGlassesOrderHasExamination;
+	rdfs:domain :Examination;
+	rdfs:range :GlassesOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Examination has intermediate vision glasses order".
+
+:farVisionGlassesOrderHasExamination a owl:ObjectProperty;
+	rdfs:domain :GlassesOrder;
+	rdfs:range :Examination;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Far vision glasses order has examination".
+
+:examinationHasFarVisionGlassesOrder a owl:ObjectProperty;
+	owl:inverseOf :farVisionGlassesOrderHasExamination;
+	rdfs:domain :Examination;
+	rdfs:range :GlassesOrder;
+	rdfs:isDefinedBy this:schema;
+	rdfs:label "Examination has far vision glasses order".
 
 :contactLensOrderHasExamination a owl:ObjectProperty;
 	rdfs:domain :ContactLensOrder;
